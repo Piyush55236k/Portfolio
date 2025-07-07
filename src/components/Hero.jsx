@@ -26,9 +26,9 @@ const Hero = () => {
         <FlipAvatar />
 
         {/* Text Content */}
-        <div className="md:w-1/2 font-display pr-9">
-          <h1 className="md:text-[6.8rem]  md:text-end text-[3rem] items-center justify-center text-center mb-5 leading-none block">
-            Piyush <span className="md:text-[5.7rem] md:text-end block  text-center">Pandey</span>
+        <div className="md:w-[70%] font-display pr-9">
+          <h1 className="md:text-[6.0rem]  md:text-end text-[3rem] items-center justify-center text-center mb-5">
+            Piyush Pandey
           </h1>
 
           <p className="mb-5 items-center justify-center text-center  pl-5 md:text-end">
