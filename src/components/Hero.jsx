@@ -23,12 +23,8 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6 md:px-24 pt-28 md:pt-36 pb-16 gap-12 md:gap-24">
         {/* Profile Image */}
-        <div className="md:w-1/2 w-full flex justify-center md:justify-end items-center">
-          <div className="w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
-            <div className="w-full h-full rounded-full overflow-hidden border-2 border-border shadow-lg bg-muted">
-              <FlipAvatar />
-            </div>
-          </div>
+        <div className="w-40 h-40 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-border shadow-lg bg-muted flex items-center justify-center">
+          <FlipAvatar />
         </div>
 
         {/* Text Content */}
