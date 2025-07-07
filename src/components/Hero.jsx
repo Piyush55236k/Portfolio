@@ -31,7 +31,7 @@ const Hero = () => {
             Piyush Pandey
           </h1>
 
-          <p className="mb-5 items-center justify-center text-center  pl-5 md:text-end">
+          <p className="mb-5 items-center justify-center text-center md:w-[70%]  pl-5 md:text-end">
             Pursuing BCA and actively building real-world projects using the MERN stack. I’ve developed apps like Taskizo, a Spotify clone, and GSAP-powered landing pages—constantly pushing my skills through hands-on learning.
           </p>
 
