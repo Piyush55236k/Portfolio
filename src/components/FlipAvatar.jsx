@@ -30,14 +30,14 @@ const FlipAvatar = () => {
         <img
           src={frontImage}
           alt="3D Avatar"
-          className="absolute w-full h-full object-cover rounded-full shadow-lg [backface-visibility:hidden]"
+          className="absolute w-full h-full object-cover  shadow-lg [backface-visibility:hidden]"
         />
 
         {/* Back (Real Photo) */}
         <img
           src={backImage}
           alt="Real"
-          className="absolute w-full h-full object-cover rounded-full shadow-lg rotate-y-180 [backface-visibility:hidden]"
+          className="absolute w-full h-full object-cover  shadow-lg rotate-y-180 [backface-visibility:hidden]"
         />
       </div>
     </div>
