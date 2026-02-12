@@ -1,0 +1,155 @@
+Right now you’re trying to animate structural layout pieces (nav, full sections). That easily breaks visibility and stacking like you already experienced.
+
+Modern sites don’t constantly move the whole layout. They animate content entering the viewport and add small, smooth transitions tied to scroll.
+
+Use GSAP in three focused places:
+
+1. Hero section (page1) – entrance animation on load
+
+Goal: make the first view feel alive, not static.
+
+Animate:
+
+greeting text
+
+name
+
+role
+
+social icons
+
+profile image
+
+Type: simple fade + upward slide with slight stagger.
+
+Conceptually:
+
+text starts slightly lower and transparent
+
+moves up 20–30px while opacity goes 0 → 1
+
+This runs once on page load, not on scroll.
+
+This gives a clean, modern “reveal” instead of a sudden pop-in.
+
+2. Section reveals on scroll (page2, page3, projects, contact)
+
+Every major block should appear when it enters the viewport.
+
+Animate:
+
+section titles (ABOUT ME, SKILLS, PORTFOLIO, CONTACT)
+
+cards in page2
+
+each skill card
+
+project images grid
+
+contact form
+
+Type: scroll-triggered fade + upward motion with stagger.
+
+Pattern:
+
+start slightly below (y: 40–60px, opacity: 0)
+
+end at normal position (y: 0, opacity: 1)
+
+trigger when section hits ~80% of viewport height
+
+stagger children (cards, images) by small delay
+
+This makes scrolling feel progressive and polished.
+
+3. Parallax-style subtle motion in hero
+
+Don’t move whole sections; move background elements slightly.
+
+Animate:
+
+profile image in .right
+
+Type: slow vertical shift tied to scroll.
+
+As user scrolls down first screen:
+
+image moves up a little (for example y: -50 to -100px) with scrub:true
+
+This adds depth without breaking layout.
+
+4. Sticky/fading navbar (but subtle)
+
+You already fade it out. Make it smoother:
+
+Instead of instantly disappearing, let it gradually reduce opacity while scrolling through the first screen only.
+
+Type: scroll-linked opacity (scrub).
+
+No big movement, just fade 1 → 0 between top and bottom of page1.
+
+5. Hover micro-interactions (no ScrollTrigger)
+
+Use GSAP for small interactive polish:
+
+scale project images slightly on hover
+
+scale skill cards slightly on hover
+
+Type:
+
+on hover: scale to ~1.05 with quick ease
+
+on leave: scale back to 1
+
+These tiny interactions make the UI feel responsive and modern.
+
+What not to animate
+
+Don’t animate full section heights or widths.
+
+Don’t constantly move the nav or major layout containers.
+
+Don’t overuse large translations on scroll (looks dated and janky).
+
+Modern feel = subtle, contextual, and staggered, not dramatic.
+
+Good animation set for your site
+
+Load animation (once):
+
+stagger reveal of .intro text and .social
+
+slight reveal of profile image
+
+Scroll reveals (repeated per section):
+
+fade/slide in section headings
+
+stagger cards in .cards
+
+stagger .image-card skills
+
+stagger project images in .demo
+
+fade/slide contact form fields
+
+Hero parallax:
+
+slow scrubbed upward move of .right img while scrolling page1
+
+Navbar fade on scroll through page1.
+
+Hover scale on cards and project images.
+
+If you implement just these five patterns, your site will feel modern and animated without breaking layout or performance:
+
+reveal on load
+
+reveal on scroll
+
+light parallax
+
+smooth navbar fade
+
+tiny hover interactions

@@ -1,0 +1,491 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+main {
+  min-height: 100dvh;
+  width: 100%;
+}
+
+.page1 {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LEFT background (no z-index needed) */
+.left {
+  width: 50%;
+  background: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* RIGHT slanted panel ON TOP of left background */
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 2; /* higher than .left so slant is visible */
+}
+
+.right img {
+  max-height: 90%;
+  width: auto;
+  object-fit: contain;
+}
+
+
+nav {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 3dvh;
+  z-index: 1000; /* above everything */
+}
+
+/* second nav text was invisible on light bg */
+.secondnav {
+  display: flex;
+  gap: 3dvw;
+  color: rgb(255, 255, 255);        /* make visible on grey */
+}
+
+nav h3 {
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 10px;
+  cursor: pointer;
+}
+
+nav h3:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 0 40%;
+}
+
+.intro {
+  width: 70%;
+}
+
+.intro .greet {
+  margin-bottom: 10%;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.intro .name {
+  font-size: 3rem;
+}
+
+.intro .role {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social {
+  margin-top: 20%;
+  display: flex;
+  gap: 2rem;
+}
+
+.social img {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+/* ===== BOTTOM INFO BAR ===== */
+.page1bottom {
+  width: 100%;
+  min-height: 30dvh;
+  background-color: #1d1d1d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  color: aliceblue;
+  opacity: 0;          /* GSAP will animate this to 1 */
+  display: flex;
+  align-items: center;
+
+  z-index: 3;          /* above both left and right */
+}
+
+
+.content {
+  width: 70%;
+  padding: 2% 0 0 4%;
+}
+
+.page1bottom h2 {
+  font-size: 1.5rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ITBERRIES {
+  margin-top: 3dvh;
+  width: 90%;
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.35;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.page2 {
+  width: 100%;
+  min-height: 100dvh;
+  background: #d7d7d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers children horizontally */
+}
+
+/* ABOUT ME SECTION */
+.aboutme {
+  width: 80%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.aboutme h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 4px solid black;
+  width: fit-content;
+  padding: 1% 4%;
+  margin: 0 auto 3% auto; /* center the heading */
+}
+
+.aboutme p {
+  width: 70%;
+  margin: 4% auto 0 auto; /* centered paragraph */
+  line-height: 1.6;
+}
+
+/* CARDS LAYOUT */
+.cards {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5%;
+  gap: 2rem; /* space between cards */
+}
+
+/* EACH CARD */
+.design,
+.development,
+.maintenance {
+  width: calc(33.33% - 2rem);
+  background: #ffffff;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.design h1,
+.development h1,
+.maintenance h1 {
+  margin-bottom: 1rem;
+}
+
+.cards p {
+  width: 100%;
+  line-height: 1.5;
+}
+
+.page3 {
+  width: 100%;
+  min-height: 100dvh;
+  background: #d7d7d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center content horizontally */
+}
+
+/* SKILLS TITLE */
+.Skills {
+  margin-top: 10%;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 4px solid black;
+  width: fit-content;
+  padding: 1% 4%;
+  margin-bottom: 3%;
+}
+
+/* SKILLS GRID */
+.usingnow {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+/* each skill card (the div you render in map) */
+.image-card {
+  width: 150px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.image-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.image-card p {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* optional sections below */
+.learning,
+.other {
+  width: 90%;
+  margin-top: 3rem;
+}
+
+.projects {
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* PORTFOLIO HEADER SECTION */
+.portfolio {
+  width: 100%;
+  min-height: 40vh;              /* not % */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/vestrahorn-mountains-stokksnes-iceland.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.portfolio h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  border: 4px solid black;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 2rem;
+  margin: 0;                    /* remove big top margins */
+}
+
+/* image grid */
+.demo {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.demo img {
+  width: 50%;
+  height: 300px;                /* fixed row height */
+  object-fit: cover;
+  display: block;
+}
+
+.contact-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #d7d7d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Header */
+.contact-header {
+  text-align: center;
+  max-width: 700px;
+}
+
+.contact-header h1 {
+  display: inline-block;
+  border: 3px solid #000;
+  padding: 0.5rem 2rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
+
+.contact-subtext {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Divider line with symbol */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.divider span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #000;
+}
+
+.divider .diamond {
+  background: none;
+  width: auto;
+  height: auto;
+  font-weight: bold;
+}
+
+/* Form */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.input-group {
+  border-left: 5px solid #000;
+  border-bottom: 5px solid #000;
+  padding-left: 0.8rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.8rem 0;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.input-group.textarea {
+  height: 150px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.input-group.textarea textarea {
+  height: 100%;
+  resize: none;
+}
+
+/* Submit button with side lines */
+.submit-btn {
+  margin: 1rem auto 0;
+  background: none;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.submit-btn span {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #000;
+}
+.footer {
+  width: 100%;
+  background: #111;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/* Back to top */
+.back-to-top {
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.back-to-top::before {
+  content: "↑";
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Social icons row */
+.footer-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-icons a {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ffffff;
+  color: #eee;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+/* Copyright */
+.footer p {
+  font-size: 0.7rem;
+  color: #bbb;
+}
