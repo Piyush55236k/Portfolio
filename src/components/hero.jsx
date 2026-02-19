@@ -1,0 +1,80 @@
+import React, { useRef } from 'react'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
+const hero = () => {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    // bottom section fade in on scroll
+    gsap.fromTo(
+      ".page1bottom",
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".page1bottom",
+          start: "top 40%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+
+    // navbar fade out when scrolling down first page
+    gsap.to(".firstnav", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".page1",
+        start: "top top",
+        end: "5% top",
+        scrub: true,
+      },
+    });
+  }, { scope: container });
+  return (
+    <div ref={container} className="page1">
+        <nav className="firstnav">
+          <h2>Piyush</h2>
+          <div className="secondnav">
+            <h3>About Me</h3>
+            <h3>Skills</h3>
+            <h3>Portfolio</h3>
+            <h3>CONTACT ME</h3>
+          </div>
+        </nav>
+        <div className="container">
+          <div className="left">
+            <div className="intro">
+              <h3 className="greet">Hi, I am</h3>
+              <h1 className="name">Piyush Pandey</h1>
+              <p className="role">Front-end Developer / UI Designer</p>
+
+              <div className="social">
+                <img src="socialicons/icons8-linkedin.svg" alt="LinkedIn" />
+                <img src="socialicons/icons8-github.svg" alt="Github" />
+                <img src="socialicons/icons8-threads.svg" alt="Threads" />
+              </div>
+            </div>
+          </div>
+
+          <div className="right">
+            <img src="/Profile/Profile.png" alt="Profile" />
+          </div>
+        </div>
+        <div className="page1bottom">
+          <div className="content">
+            <h2>Why Work With Me?</h2>
+            <p className="ITBERRIES">
+              I’ve validated my skills through real competition and industry exposure. A 3-month Coding Blocks internship strengthened my technical foundation, while winning an internal hackathon and participating in government-level hackathons sharpened my ability to build under time pressure.<br /><br />
+
+              I don’t just build interfaces — I build structured, scalable systems with performance and user experience in mind. My approach combines clean architecture, efficient rendering, and thoughtful UI interactions.
+            </p>
+          </div>
+        </div>
+    </div>
+  )
+}
+
+export default hero

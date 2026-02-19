@@ -44,20 +44,5 @@ export const items = [
     id: 9,
     src: "skills/icons8-css3-50.png",
     text: "This is the third image"
-  },
-   {
-    id: 10,
-    src: "skills/framer motion.png",
-    text: "This is the first image"
-  },
-  {
-    id: 11,
-    src: "skills/icons8-html5.svg",
-    text: "This is the second image"
-  },
-  {
-    id: 12,
-    src: "skills/icons8-css3-50.png",
-    text: "This is the third image"
   }
 ];
