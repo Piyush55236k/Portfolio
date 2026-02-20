@@ -21,12 +21,24 @@ const hero = () => {
         },
       }
     );
-
+    //intro animate 
+    gsap.from(".intro > *", {
+  y: 40,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 0.8
+});
+//right image animate
+gsap.from(".right img", {
+  scale: 0.8,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out"
+});
     // navbar fade out when scrolling down first page
     gsap.to(".firstnav", {
       opacity: 0,
       scrollTrigger: {
-        trigger: ".page1",
         start: "top top",
         end: "5% top",
         scrub: true,
@@ -60,7 +72,7 @@ const hero = () => {
           </div>
 
           <div className="right">
-            <img src="/Profile/Profile.png" alt="Profile" />
+            <img src="/Profile/Profile.webp" alt="Profile" />
           </div>
         </div>
         <div className="page1bottom">

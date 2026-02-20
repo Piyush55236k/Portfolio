@@ -78,15 +78,15 @@ section {
   background: black;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 2;
 }
 
 .right img {
-  max-height: 90%;
-  width: auto;
-  object-fit: contain;
+  height: 250%;
+  position: absolute;
+  top: -20%;
 }
 
 /* NAV */
@@ -266,7 +266,7 @@ nav h3:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/vestrahorn-mountains-stokksnes-iceland.jpg");
+  background: url("/vestrahorn-mountains-stokksnes-iceland.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -284,21 +284,89 @@ nav h3:hover {
 .demo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0 5%;
+  margin-top: 4rem;
 }
 
-.demo img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
-  transition: transform 0.4s ease;
-}
 
 .demo img:hover {
   transform: scale(1.03);
 }
+/* .project-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+} */
 
+/* .project-card:hover img {
+  transform: scale(1.05);
+} */
+.project-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay a {
+  background: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+.overlay h3{
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 /* ================= CONTACT ================= */
 .contact-section {
   background: #d7d7d7;
@@ -401,7 +469,12 @@ nav h3:hover {
   background: #000;
   display: block;
 }
-
+.form-status {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 /* ================= FOOTER ================= */
 .footer {
   background: #111;
@@ -531,6 +604,7 @@ nav h3:hover {
   .learning,
   .other {
     width: 90%;
+
   }
 
   .image-list {
@@ -556,7 +630,29 @@ nav h3:hover {
   .demo img {
     height: 250px;
   }
+  .overlay {
+    position: relative;
+    opacity: 1;
+    background: none;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+.overlay h3{
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+  .image-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .overlay a {
+    background: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+  }
   /* ================= CONTACT ================= */
 
   .contact-form {
