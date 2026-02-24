@@ -61,7 +61,7 @@ gsap.from(".right img", {
             <div className="intro">
               <h3 className="greet">Hi, I am</h3>
               <h1 className="name">Piyush Pandey</h1>
-              <p className="role">Front-end Developer / UI Designer</p>
+              <p className="role">Full Stack Developer</p>
 
               <div className="social">
                 <img src="socialicons/icons8-linkedin.svg" alt="LinkedIn" />
